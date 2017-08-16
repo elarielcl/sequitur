@@ -228,11 +228,11 @@ symbols **find_digram(symbols *s)
 {
   if (!table) {
     extern int memory_to_use;
-    table_size = memory_to_use / (K * sizeof(symbols *));
+    table_size = memory_to_use / (K * sizeof(symbols *)) * 1000000;
     extern int quiet;
 
     if (!quiet) {
-      cerr << "Using " << memory_to_use / 1000000
+      cerr << "Using " << memory_to_use
 	   << " MB of memory for the hash table." << endl;
       cerr << "If this is too large for your machine, "
 	   << "or the hash table becomes more than" << endl;
@@ -287,7 +287,7 @@ symbols **find_digram(symbols *s)
     i = (i + jump) % table_size;
 
     // this is only a collision if we're not inserting
-    if (insert == -1) 
+    if (insert == -1)
       collisions ++;
   }
 }

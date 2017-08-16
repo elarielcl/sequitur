@@ -54,7 +54,7 @@ int compress = 0,
   print_rule_freq = 0,
   print_rule_usage = 0,
   delimiter = -1,
-  memory_to_use = 1000000000,
+  memory_to_use = 1000,
 
   // minimum number of times a digram must occur to form rule minus one
   // (e.g. if K is 1, two occurrences are required to form rule)
@@ -120,7 +120,7 @@ int main(int argc, char **argv)
       case 'e': delimiter_string = optarg; break;
       case 'f': max_symbols = atoi(optarg); break;
       case 'k': K = atoi(optarg) - 1; break;
-      case 'm': memory_to_use = atoi(optarg) * 1000000; break;
+      case 'm': memory_to_use = atoi(optarg) ; break;
     }
   }
 
